@@ -1,0 +1,7 @@
+:root {
+  --code-font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+pre code {
+  font-family: var(--code-font-family);
+}
