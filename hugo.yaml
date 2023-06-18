@@ -6,6 +6,8 @@ theme: 'PaperMod'
 defaultContentLanguage: ja
 
 params:
+  showtoc: true
+  tocopen: true
   defaultTheme: 'auto'
 
   homeInfoParams:
