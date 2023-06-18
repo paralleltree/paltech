@@ -5,3 +5,7 @@
 code {
   font-family: var(--code-font-family);
 }
+
+.post-content code {
+  font-size: .85rem;
+}
