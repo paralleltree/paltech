@@ -20,3 +20,6 @@ menu:
     - identifier: archives
       name: Archive
       url: /archives/
+
+permalinks:
+  posts: "/posts/:filename/"
