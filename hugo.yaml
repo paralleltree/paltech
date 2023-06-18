@@ -3,6 +3,8 @@ languageCode: 'ja-jp'
 title: 'paltech'
 theme: 'PaperMod'
 
+defaultContentLanguage: ja
+
 params:
   defaultTheme: 'auto'
 
