@@ -1,7 +1,7 @@
 ---
 title: "Hugoのブログを立てました"
 date: 2023-06-18T14:19:43+09:00
-draft: true
+draft: false
 summary: ''
 tags: ['Hugo', 'Netlify']
 ---
