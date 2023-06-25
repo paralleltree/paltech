@@ -10,6 +10,7 @@
   border-radius: 4px;
   background-color: var(--callout-background-color);
   border: solid 1px var(--callout-border-color);
+  font-size: 0.95em;
 }
 
 .callout p {
