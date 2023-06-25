@@ -1,7 +1,7 @@
 ---
 title: ".devドメインを生やした"
 date: 2023-06-25T20:11:56+09:00
-draft: true
+draft: false
 summary: 'Gandiでpaltee.devドメインを取得しました。'
 tags: ['Gandi']
 ---
