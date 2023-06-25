@@ -25,6 +25,8 @@ tags: ['Gandi']
 Gandiでは.devドメインが年1803円となっていました。
 お名前.comの.netドメインが1507円(2023年現在はサービス維持調整費が別途追加)と考えると価格帯としては同等です。
 
+{{< figure src="img/dev_domain_price_gandi.webp" alt="Gandiでの.devドメイン 年1803円" >}}
+
 今回はGandiでドメインを取得することにしました。
 
 ## Gandiでドメイン取得
