@@ -1,0 +1,17 @@
+:root {
+  --callout-padding: 16px;
+  --callout-border-color: rgba(51, 113, 244, 0.4);
+  --callout-background-color: rgba(51, 113, 244, 0.1);
+}
+
+.callout {
+  padding: var(--callout-padding);
+  margin-bottom: var(--content-gap);
+  border-radius: 4px;
+  background-color: var(--callout-background-color);
+  border: solid 1px var(--callout-border-color);
+}
+
+.callout p {
+  margin: 0;
+}
