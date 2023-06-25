@@ -24,6 +24,14 @@ Netlifyでデプロイするまでの過程で直したりしたところの記�
 
 https://github.com/paralleltree/blog.paltee.net/commit/301c7d14303801a8906491b9f01371464f1a61c2
 
+## Shortcodesを使った補足セクションの追加
+
+補足用のセクションを書けるようにしたかったので、Shortcodesのテンプレートを作りました。
+
+以下を参考に`layouts/shortcodes`配下にテンプレートを追加。早速下で使ってみてます。
+
+[Create Your Own Shortcodes | HUGO](https://gohugo.io/templates/shortcode-templates/)
+
 ## Analyticsの導入
 
 テーマのテンプレートをlayoutsディレクトリにコピーして計測タグを挿入するよう対応しました。
@@ -32,6 +40,9 @@ Google Analyticsの測定IDは設定か環境変数から渡せるようにし�
 
 https://github.com/paralleltree/blog.paltee.net/commit/64d2c9e233b83c53b8c758101bfa12b2a4e54931
 
+{{< callout >}}
+リンクのコミットでは2箇所で測定IDを埋め込むべきところ、1箇所が漏れてます……
+{{< /callout >}}
 
 ## ページ構成とPage Bundles
 
