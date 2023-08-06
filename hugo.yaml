@@ -25,3 +25,8 @@ menu:
 
 permalinks:
   posts: "/posts/:filename/"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
