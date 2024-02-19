@@ -22,7 +22,7 @@ Netlifyでデプロイするまでの過程で直したりしたところの記�
 
 コード書くのに残念な感じになるのは避けたいので、適切なフォントを当てるようにスタイルをオーバーライドしました。
 
-https://github.com/paralleltree/blog.paltee.net/commit/301c7d14303801a8906491b9f01371464f1a61c2
+https://github.com/paralleltree/paltech/commit/301c7d14303801a8906491b9f01371464f1a61c2
 
 ## Shortcodesを使った補足セクションの追加
 
@@ -38,7 +38,7 @@ https://github.com/paralleltree/blog.paltee.net/commit/301c7d14303801a8906491b9f
 Google Analyticsの測定IDは設定か環境変数から渡せるようにしています。
 ここではNetlifyの環境変数から渡すように設定しました。
 
-https://github.com/paralleltree/blog.paltee.net/commit/64d2c9e233b83c53b8c758101bfa12b2a4e54931
+https://github.com/paralleltree/paltech/commit/64d2c9e233b83c53b8c758101bfa12b2a4e54931
 
 {{< callout >}}
 リンクのコミットでは2箇所で測定IDを埋め込むべきところ、1箇所が漏れてます……
