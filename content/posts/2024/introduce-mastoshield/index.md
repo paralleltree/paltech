@@ -25,7 +25,7 @@ Goで実装し、フィルタリングの条件に基づいてリクエストを
 
 ### ルールの設定
 
-```plain
+```yml
 rulesets:
   - action: deny
     rules:
@@ -42,7 +42,7 @@ rulesets:
 自インスタンスへの導入にあたり、今回はホストマシンのsystemdで管理することとしました。
 以下のユニットファイルを作成し、有効化します。
 
-```systemd
+```
 [Unit]
 Description=A reverse proxy server for filtering requests to mastodon
 Documentation=https://github.com/paralleltree/mastoshield
