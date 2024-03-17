@@ -2,8 +2,8 @@
 title: "マルコフ連鎖botを作って改修した"
 date: 2024-03-17T15:17:10+09:00
 draft: false
-summary: 'Mastodonの投稿'
-tags: []
+summary: 'Mastodonの投稿から文章を生成するbotを作成しました。'
+tags: ['マルコフ連鎖', 'bot']
 ---
 
 マルコフ連鎖モデルで過去の自分の投稿から文章を生成するbotを作成していました。
