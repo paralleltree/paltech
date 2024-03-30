@@ -3,7 +3,7 @@ title: "マルコフ連鎖botを作って改修した"
 date: 2024-03-17T15:17:10+09:00
 draft: false
 summary: 'Mastodonの投稿から文章を生成するbotを作成しました。'
-tags: ['マルコフ連鎖', 'bot']
+tags: ['マルコフ連鎖', 'bot', 'MeCab', 'Mastodon', 'AWS Lambda']
 ---
 
 マルコフ連鎖モデルで過去の自分の投稿から文章を生成するbotを作成していました。
@@ -59,7 +59,7 @@ type MorphemeAnalyzer interface {
 }
 ```
 
-形態素解析エンジンとしてはMecabを利用する実装を作成していますが、MorphemeAnalyzerインターフェースを実装する形で他の実装を利用することができるようにしています。
+形態素解析エンジンとしてはMeCabを利用する実装を作成していますが、MorphemeAnalyzerインターフェースを実装する形で他の実装を利用することができるようにしています。
 
 ### マルコフ連鎖 (markovパッケージ)
 
@@ -172,7 +172,7 @@ type PersistentStore interface {
 ## DockerイメージとLambda関数としてのデプロイ
 
 
-アプリケーション自体はGo言語で実装していますが、形態素解析を行うMecabとあわせてランタイムを構築できるよう、以下のDockerfileを定義しています。
+アプリケーション自体はGo言語で実装していますが、形態素解析を行うMeCabとあわせてランタイムを構築できるよう、以下のDockerfileを定義しています。
 
 https://github.com/paralleltree/markov-bot-go/blob/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/Dockerfile
 
