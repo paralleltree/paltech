@@ -1,0 +1,38 @@
+.link-card {
+  margin-block-end: var(--content-gap);
+  padding: 1.5em;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+}
+
+.link-card:hover {
+  opacity: 0.8;
+}
+
+.link-card .card-title {
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+.link-card .card-host,
+.link-card .card-text {
+  color: var(--secondary);
+  font-size: 0.8em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.link-card .card-title,
+.link-card .card-text {
+  margin-block-end: 0.8em;
+}
+
+.link-card .card-host {
+  margin-block-start: 0.8em;
+  margin-block-end: 0;
+}

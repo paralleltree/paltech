@@ -1,0 +1,44 @@
+{{- $url := urls.Parse (.Get 0) -}}
+{{- $title := "" }}
+{{- $description := .Inner }}
+
+{{- with resources.GetRemote $url -}}
+  {{- with .Err -}}
+    {{- $title = "Cannot access to the page" -}}
+    {{- $description = "" -}}
+  {{- else -}}
+    {{- with findRESubmatch "<title>([^<]+?)</title>" .Content 1 -}}
+      {{- with index . 0 -}}
+        {{- $title = index . 1 -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- with findRE "<head>(.|\n)*?</head>" .Content 1 -}}
+      {{- with index . 0 }}
+        {{- range $meta := findRE "<meta[^>]*?>" . -}}
+          <!-- extract ogp attributes -->
+          {{- $property := replaceRE ".*property=\"([^\"]*?)\".*" "$1" $meta -}}
+          {{- $content := replaceRE ".*content=\"([^\"]*?)\".*" "$1" $meta -}}
+          {{- with (eq $property "og:title") -}}
+            {{- $title = $content -}}
+          {{- end -}}
+          {{- with (eq $property "og:description") -}}
+            {{- $description = $content -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+<a href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+  <div class="link-card">
+    <div class="card-body">
+      <p class="card-title">{{ $title | htmlUnescape }}</p>
+      {{- if ne $description "" -}}
+        <p class="card-text">{{ $description | htmlUnescape | truncate 100 }}</p>
+      {{- end -}}
+      <p class="card-host">{{ $url.Host }}</p>
+    </div>
+  </div>
+</a>
