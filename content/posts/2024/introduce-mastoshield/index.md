@@ -16,7 +16,7 @@ tags: ['Fediverse', 'ActivityPub', 'Go']
 
 作成したリポジトリは以下です。
 
-https://github.com/paralleltree/mastoshield
+{{< linkcard "https://github.com/paralleltree/mastoshield" />}}
 
 Goで実装し、フィルタリングの条件に基づいてリクエストを処理するリバースプロキシとして動作します。
 スパムの対応にあたり、フィルタリングの条件を柔軟に組み合わせて定義できるように設計しています。

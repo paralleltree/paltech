@@ -323,7 +323,7 @@ S3_PERMISSION=private
 
 今回はS3バケットで全てのパブリックアクセスをブロックしているので、`S3_PERMISSION=private`を追加で指定しています。
 
-https://docs.joinmastodon.org/admin/optional/object-storage/#s3_permission
+{{< linkcard "https://docs.joinmastodon.org/admin/optional/object-storage/#s3_permission" />}}
 
 ### nginxのリダイレクト設定
 

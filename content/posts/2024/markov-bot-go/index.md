@@ -3,7 +3,7 @@ title: "マルコフ連鎖botを作って改修した"
 date: 2024-03-17T15:17:10+09:00
 draft: false
 summary: 'Mastodonの投稿から文章を生成するbotを作成しました。'
-tags: ['マルコフ連鎖', 'bot']
+tags: ['マルコフ連鎖', 'bot', 'MeCab', 'Mastodon', 'AWS Lambda']
 ---
 
 マルコフ連鎖モデルで過去の自分の投稿から文章を生成するbotを作成していました。
@@ -12,7 +12,7 @@ tags: ['マルコフ連鎖', 'bot']
 
 リポジトリは以下です。
 
-https://github.com/paralleltree/markov-bot-go
+{{< linkcard "https://github.com/paralleltree/markov-bot-go" />}}
 
 既存実装としてはPythonのプロジェクトがありましたが、コンパイルされたバイナリで実行したかった点、マルコフ連鎖のライブラリへの参照があった点から勉強を兼ねて自作してみることにしました。
 
@@ -24,7 +24,7 @@ https://github.com/paralleltree/markov-bot-go
 
 ソースとなるメッセージの取得、生成した文章の投稿を行うパッケージです。
 
-https://github.com/paralleltree/markov-bot-go/tree/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/blog
+{{< linkcard "https://github.com/paralleltree/markov-bot-go/tree/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/blog" />}}
 
 
 メッセージ取得の作りとしては、以下のようにイテレーターとして投稿のリストを返すようメソッドを定義しています。
@@ -48,7 +48,7 @@ type ChunkIteratorFunc[T any] func() ([]T, bool, error)
 
 取得したメッセージに対して形態素解析を行うパッケージです。
 
-https://github.com/paralleltree/markov-bot-go/tree/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/morpheme
+{{< linkcard "https://github.com/paralleltree/markov-bot-go/tree/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/morpheme" />}}
 
 インターフェースとしては、入力の文章を形態素解析した結果を文字列のスライスとして返します。
 複数の文章へ分割される可能性もあるため、スライスのスライスを返す作りとなっています。
@@ -59,13 +59,13 @@ type MorphemeAnalyzer interface {
 }
 ```
 
-形態素解析エンジンとしてはMecabを利用する実装を作成していますが、MorphemeAnalyzerインターフェースを実装する形で他の実装を利用することができるようにしています。
+形態素解析エンジンとしてはMeCabを利用する実装を作成していますが、MorphemeAnalyzerインターフェースを実装する形で他の実装を利用することができるようにしています。
 
 ### マルコフ連鎖 (markovパッケージ)
 
 マルコフ連鎖のモデル生成、モデルからの文章生成を行うパッケージです。
 
-https://github.com/paralleltree/markov-bot-go/tree/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/markov
+{{< linkcard "https://github.com/paralleltree/markov-bot-go/tree/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/markov" />}}
 
 #### モデル生成
 
@@ -143,13 +143,13 @@ Generateメソッドでは状態数分のBOSを初期状態として、EOSへ遷
 
 以下のように、頻度が多いワードはそれに見合った確率で選択されるように重みをつけています。
 
-https://github.com/paralleltree/markov-bot-go/blob/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/markov/chain.go#L67-L69
+{{< linkcard "https://github.com/paralleltree/markov-bot-go/blob/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/markov/chain.go#L67-L69" />}}
 
 ### フロントエンドと永続化
 
 フロント実装として、CLIとLambda関数を作成しています。
 
-https://github.com/paralleltree/markov-bot-go/tree/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/cmd
+{{< linkcard "https://github.com/paralleltree/markov-bot-go/tree/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/cmd" />}}
 
 両者での基本的な流れは以下の通りです。
 
@@ -172,13 +172,13 @@ type PersistentStore interface {
 ## DockerイメージとLambda関数としてのデプロイ
 
 
-アプリケーション自体はGo言語で実装していますが、形態素解析を行うMecabとあわせてランタイムを構築できるよう、以下のDockerfileを定義しています。
+アプリケーション自体はGo言語で実装していますが、形態素解析を行うMeCabとあわせてランタイムを構築できるよう、以下のDockerfileを定義しています。
 
-https://github.com/paralleltree/markov-bot-go/blob/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/Dockerfile
+{{< linkcard "https://github.com/paralleltree/markov-bot-go/blob/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/Dockerfile" />}}
 
 また、このイメージを利用するCloudFormationのテンプレートを作成し、Lambda関数としてデプロイできるように構成しています。
 
-https://github.com/paralleltree/markov-bot-go/blob/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/cmd/lambda/template.yaml
+{{< linkcard "https://github.com/paralleltree/markov-bot-go/blob/6fc723c84eb82a1bba27209dea8d47366aa1c6c5/cmd/lambda/template.yaml" />}}
 
 詳細はREADMEに譲りますが、S3バケット上に設定ファイルを配置し、EventBridgeを経由して定期実行する環境で運用しています。
 
