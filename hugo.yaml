@@ -30,3 +30,8 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+languages:
+  ja:
+    params:
+      dateFormat: "2006-01-02"
