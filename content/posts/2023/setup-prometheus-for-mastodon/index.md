@@ -152,7 +152,7 @@ Prometheus自体はMastodon専用ではなく、運用しているホスト等�
 Mastodon側ではexporterのセットアップを行います。
 今回は以下の記事を参考にstatsd-exporterのmappingを定義した上で起動します。
 
-[Mastodon - Part 3 - statsd and Prometheus](https://ipng.ch/s/articles/2022/11/27/mastodon-3.html)
+{{< linkcard "https://ipng.ch/s/articles/2022/11/27/mastodon-3.html" />}}
 
 Mastodonのアプリケーションで環境変数`STATSD_ADDR`に対しメトリクスの送信先を指定した上で再起動します。
 
@@ -189,13 +189,13 @@ Prometheus上のtsdbのステータスから、無事メトリクスが転送さ
 
 以下を参考に環境変数を追加した上で再起動しました。
 
-https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-authentication/grafana/#anonymous-authentication
+{{< linkcard "https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-authentication/grafana/#anonymous-authentication" />}}
 
 Organization単位でダッシュボードがPublicになるので、Organization名をPublicとしたものをanonymous authが有効なOrganizationとしています。
 
 実際のダッシュボードは以下から確認できます。
 
-https://grafana.paltee.dev
+{{< linkcard "https://grafana.paltee.dev" />}}
 
 ## 終わりに
 
@@ -204,4 +204,4 @@ MastodonのメトリクスをPrometheusとGrafanaを使って可視化してみ�
 
 ## 参考記事
 
-* https://gamelinks007.hatenablog.com/entry/2021/10/14/001304
+{{< linkcard "https://gamelinks007.hatenablog.com/entry/2021/10/14/001304" />}}

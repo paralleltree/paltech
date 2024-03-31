@@ -22,7 +22,7 @@ Netlifyでデプロイするまでの過程で直したりしたところの記�
 
 コード書くのに残念な感じになるのは避けたいので、適切なフォントを当てるようにスタイルをオーバーライドしました。
 
-https://github.com/paralleltree/paltech/commit/301c7d14303801a8906491b9f01371464f1a61c2
+{{< linkcard "https://github.com/paralleltree/paltech/commit/301c7d14303801a8906491b9f01371464f1a61c2" />}}
 
 ## Shortcodesを使った補足セクションの追加
 
@@ -30,7 +30,7 @@ https://github.com/paralleltree/paltech/commit/301c7d14303801a8906491b9f01371464
 
 以下を参考に`layouts/shortcodes`配下にテンプレートを追加。早速下で使ってみてます。
 
-[Create Your Own Shortcodes | HUGO](https://gohugo.io/templates/shortcode-templates/)
+{{< linkcard "https://gohugo.io/templates/shortcode-templates/" />}}
 
 ## Analyticsの導入
 
@@ -38,7 +38,7 @@ https://github.com/paralleltree/paltech/commit/301c7d14303801a8906491b9f01371464
 Google Analyticsの測定IDは設定か環境変数から渡せるようにしています。
 ここではNetlifyの環境変数から渡すように設定しました。
 
-https://github.com/paralleltree/paltech/commit/64d2c9e233b83c53b8c758101bfa12b2a4e54931
+{{< linkcard "https://github.com/paralleltree/paltech/commit/64d2c9e233b83c53b8c758101bfa12b2a4e54931" />}}
 
 {{< callout >}}
 リンクのコミットでは2箇所で測定IDを埋め込むべきところ、1箇所が漏れてます……
@@ -67,7 +67,7 @@ permalinks:
 
 permalinksにfilenameを指定していたので、URLはどうなるんだろうと思ったらちゃんと`index.md`のディレクトリ名になってました。
 
-https://github.com/gohugoio/hugo/blob/0e7944658660b5658b7640dce3cb346d7198d8c9/resources/page/permalinks.go#L251-L255
+{{< linkcard "https://github.com/gohugoio/hugo/blob/0e7944658660b5658b7640dce3cb346d7198d8c9/resources/page/permalinks.go#L251-L255" />}}
 
 ## デプロイ
 
