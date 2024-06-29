@@ -114,7 +114,7 @@ aws iam list-policy-versions --output json --no-paginate --policy-arn "$arn" | \
   jq -r 'first(.Versions | sort_by(.CreateDate) | .[] | select(.IsDefaultVersion == false)) | .VersionId'
 ```
 
-# おわりに
+## おわりに
 
 前述した通り作業対象のIAMポリシーがそれなりにあったので、このスクリプトのおかげで楽に作業を進めることができました。
 jqはたまによく使うものの、リファレンスを読みながらでないとなかなか使いこなせないことが多いのでもっと活用したいですね。
