@@ -23,10 +23,7 @@
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
     {{ if .Page.Store.Get "hasMermaid" }}
-        <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: true, theme: 'neutral', themeVariables: { 'darkMode': true } });
-        </script>
+        {{ partial "mermaid.html" .}}
     {{ end }}    
 </body>
 
