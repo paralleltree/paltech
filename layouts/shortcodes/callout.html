@@ -1,5 +1,5 @@
 {{- $body := .Inner }}
 
 <div class="callout">
-  <p>{{ $body }}</p>
+  <p>{{ $body | markdownify }}</p>
 </div>
