@@ -1,0 +1,58 @@
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+  // ref: https://github.com/mermaid-js/mermaid/issues/1945
+  (function (window) {
+    const elementCode = '.mermaid';
+    const sourceAttributeKey = 'data-mermaid-original-source';
+    const loadMermaid = (theme) => {
+      mermaid.initialize({ theme: theme, startOnLoad: false });
+      mermaid.run({ nodes: document.querySelectorAll(elementCode) });
+    };
+
+    const saveOriginalData = () => {
+      const elements = document.querySelectorAll(elementCode);
+      for (const element of elements) {
+        element.setAttribute(sourceAttributeKey, element.innerHTML);
+      }
+    };
+
+    const resetProcessedFigure = () => {
+      const elements = document.querySelectorAll(elementCode);
+      for (const element of elements) {
+        const sourceData = element.getAttribute(sourceAttributeKey);
+        if (sourceData !== null) {
+          element.removeAttribute('data-processed');
+          element.innerHTML = sourceData;
+        }
+      };
+    };
+
+    const refreshMermaid = (theme) => {
+      resetProcessedFigure();
+      loadMermaid(theme);
+    };
+
+    const listenThemeChange = (targetNode, callback) => {
+      const changeClassObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type !== 'attributes' && mutation.attributeName !== 'class') return;
+          callback();
+        });
+      });
+      changeClassObserver.observe(targetNode, { attributes: true });
+    };
+
+    const getTheme = () => document.body.className.includes('dark') ? 'dark' : 'neutral';
+
+    const init = () => {
+      saveOriginalData();
+      listenThemeChange(document.body, () => {
+        refreshMermaid(getTheme());
+      });
+      refreshMermaid(getTheme());
+    };
+
+    init();
+  }(window));
+</script>
